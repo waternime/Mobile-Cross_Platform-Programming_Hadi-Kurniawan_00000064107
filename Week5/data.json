@@ -1,0 +1,32 @@
+[
+    {
+        "name": "Jhon Doe",
+        "email": "jhon.doe@example.com",
+        "photo_url": "https://randomuser.me/api/portraits/men/1.jpg"
+    },
+    {
+        "name": "Jane Smith",
+        "email": "jane.smith@example.com",
+        "photo_url": "https://randomuser.me/api/portraits/women/2.jpg"
+    },
+    {
+        "name":  "Michael Johnson",
+        "email": "michael@example.com",
+        "photo_url": "https://randomuser.me/api/portraits/men/3.jpg"
+    },
+    {
+        "name": "Riana",
+        "email": "riana@example.com",
+        "photo_url": "https://randomuser.me/api/portraits/women/4.jpg"
+    },
+    {
+        "name": "Brando",
+        "email": "brando@example.com",
+        "photo_url": "https://randomuser.me/api/portraits/men/5.jpg"
+    },
+    {
+        "name": "Windah",
+        "email": "windah@example.com",
+        "photo_url": "https://randomuser.me/api/portraits/men/6.jpg"
+    }
+]
