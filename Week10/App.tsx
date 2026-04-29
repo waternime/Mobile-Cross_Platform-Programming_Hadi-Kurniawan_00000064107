@@ -1,24 +1,26 @@
 import * as Location from "expo-location";
 import React, { useState } from "react";
 import { Button, Dimensions, StyleSheet, Text, View } from "react-native";
-import MapView, { Marker, Region } from "react-native-maps";
+import MapView, { Marker, Region, UrlTile } from "react-native-maps";
 
 type Coordinates = {
   latitude: number;
   longitude: number;
 };
 
+// ambil tinggi layar
 const { height } = Dimensions.get("window");
 
 export default function App() {
   const [location, setLocation] = useState<Coordinates | null>(null);
   const [marker, setMarker] = useState<Coordinates | null>(null);
 
+  // ambil lokasi user
   const getLocation = async (): Promise<void> => {
     const { status } = await Location.requestForegroundPermissionsAsync();
 
     if (status !== "granted") {
-      alert("Permission denied!");
+      alert("Permission denied! Please allow location access.");
       return;
     }
 
@@ -33,6 +35,7 @@ export default function App() {
     setMarker(coords);
   };
 
+  // region map (pakai marker biar update terus)
   const region: Region | undefined = marker
     ? {
         latitude: marker.latitude,
@@ -59,6 +62,10 @@ export default function App() {
               setLocation(coord);
             }}
           >
+            {/* OpenStreetMap */}
+            <UrlTile urlTemplate="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
+
+            {/* Marker */}
             {marker && (
               <Marker
                 coordinate={marker}
@@ -85,7 +92,9 @@ export default function App() {
 }
 
 const styles = StyleSheet.create({
-  container: { flex: 1 },
+  container: {
+    flex: 1,
+  },
   center: {
     flex: 1,
     justifyContent: "center",
